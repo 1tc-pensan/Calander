@@ -57,17 +57,17 @@ A Grid egy egyszerű elrendezést biztosít, benne egy StackPanel, amely egymás
     </Grid>
 
 1.A Calendar egy naptár, ahol egyetlen dátumot lehet kiválasztani (SelectionMode="SingleDate").
-
+```xaml
 <TextBlock Text="Naptár:" Margin="0,0,0,5"/>
 <Calendar x:Name="myCalendar" SelectionMode="SingleDate"/>
-
+```
 2.A DatePicker egy dátumválasztó, amely legördülő naptárral és kézi bevitellel is működik.
-
+```xaml
 <TextBlock Text="Dátumválasztó:" Margin="0,20,0,5"/>
             <DatePicker x:Name="myDatePicker"/>
-
+```
 3.A Button_Click esemény hatására a program kiírja a Calendar és a DatePicker által kiválasztott dátumokat a TextBlock-ba. Ha nincs kiválasztva dátum, a "nincs kiválasztva" szöveg jelenik meg.
-
+```cs
  private void Button_Click(object sender, RoutedEventArgs e)
     {
         DateTime? selectedCalendarDate = myCalendar.SelectedDate;
@@ -75,6 +75,8 @@ A Grid egy egyszerű elrendezést biztosít, benne egy StackPanel, amely egymás
         selectedDateText.Text = $"Mai dátum: {selectedCalendarDate?.ToString("yyyy.MM.dd") ?? "nincs kiválasztva"}\n" +
                               $"Kiválasztott dátum: {selectedPickerDate?.ToString("yyyy.MM.dd") ?? "nincs kiválasztva"}";
     }
-
-A DateTime? típust használjuk, mert a kiválasztott dátum lehet null, ha a felhasználó még nem jelölt ki semmit.
+```
+4.A DateTime? típust használjuk, mert a kiválasztott dátum lehet null, ha a felhasználó még nem jelölt ki semmit.
+```cs
 DateTime? selectedCalendarDate = myCalendar.SelectedDate;
+```
