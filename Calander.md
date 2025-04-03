@@ -20,7 +20,7 @@ Ez a dokumentum egy egyszerű WPF alkalmazás kódját mutatja be, amely egy `Ca
         </StackPanel>
     </Grid>
 </Window>
-
+### Cs kód (MainWindow.xaml.cs)
 ```cs
 namespace WpfApp3;
 
