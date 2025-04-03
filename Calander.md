@@ -20,6 +20,7 @@ Ez a dokumentum egy egyszerű WPF alkalmazás kódját mutatja be, amely egy `Ca
         </StackPanel>
     </Grid>
 </Window>
+```
 ### Cs kód (MainWindow.xaml.cs)
 ```cs
 namespace WpfApp3;
@@ -42,7 +43,7 @@ public partial class MainWindow : Window
                               $"Kiválasztott dátum: {selectedPickerDate?.ToString("yyyy.MM.dd") ?? "nincs kiválasztva"}";
     }
 }
-
+```
 A Grid egy egyszerű elrendezést biztosít, benne egy StackPanel, amely egymás alá rendezi az elemeket.
     <Grid>
         <StackPanel Margin="10">
