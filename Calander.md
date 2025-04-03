@@ -44,7 +44,7 @@ public partial class MainWindow : Window
     }
 }
 ```
-A Grid egy egyszerű elrendezést biztosít, benne egy StackPanel, amely egymás alá rendezi az elemeket.
+1.A Grid egy egyszerű elrendezést biztosít, benne egy StackPanel, amely egymás alá rendezi az elemeket.
 ```xaml
     <Grid>
         <StackPanel Margin="10">
@@ -57,17 +57,17 @@ A Grid egy egyszerű elrendezést biztosít, benne egy StackPanel, amely egymás
         </StackPanel>
     </Grid>
 ```
-1.A Calendar egy naptár, ahol egyetlen dátumot lehet kiválasztani (SelectionMode="SingleDate").
+2.A Calendar egy naptár, ahol egyetlen dátumot lehet kiválasztani (SelectionMode="SingleDate").
 ```xaml
 <TextBlock Text="Naptár:" Margin="0,0,0,5"/>
 <Calendar x:Name="myCalendar" SelectionMode="SingleDate"/>
 ```
-2.A DatePicker egy dátumválasztó, amely legördülő naptárral és kézi bevitellel is működik.
+3.A DatePicker egy dátumválasztó, amely legördülő naptárral és kézi bevitellel is működik.
 ```xaml
 <TextBlock Text="Dátumválasztó:" Margin="0,20,0,5"/>
             <DatePicker x:Name="myDatePicker"/>
 ```
-3.A Button_Click esemény hatására a program kiírja a Calendar és a DatePicker által kiválasztott dátumokat a TextBlock-ba. Ha nincs kiválasztva dátum, a "nincs kiválasztva" szöveg jelenik meg.
+4.A Button_Click esemény hatására a program kiírja a Calendar és a DatePicker által kiválasztott dátumokat a TextBlock-ba. Ha nincs kiválasztva dátum, a "nincs kiválasztva" szöveg jelenik meg.
 ```cs
  private void Button_Click(object sender, RoutedEventArgs e)
     {
@@ -77,7 +77,7 @@ A Grid egy egyszerű elrendezést biztosít, benne egy StackPanel, amely egymás
                               $"Kiválasztott dátum: {selectedPickerDate?.ToString("yyyy.MM.dd") ?? "nincs kiválasztva"}";
     }
 ```
-4.A DateTime? típust használjuk, mert a kiválasztott dátum lehet null, ha a felhasználó még nem jelölt ki semmit.
+5.A DateTime? típust használjuk, mert a kiválasztott dátum lehet null, ha a felhasználó még nem jelölt ki semmit.
 ```cs
 DateTime? selectedCalendarDate = myCalendar.SelectedDate;
 ```
