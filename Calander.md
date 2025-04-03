@@ -45,6 +45,7 @@ public partial class MainWindow : Window
 }
 ```
 A Grid egy egyszerű elrendezést biztosít, benne egy StackPanel, amely egymás alá rendezi az elemeket.
+```xaml
     <Grid>
         <StackPanel Margin="10">
             <TextBlock Text="Naptár:" Margin="0,0,0,5"/>
@@ -55,7 +56,7 @@ A Grid egy egyszerű elrendezést biztosít, benne egy StackPanel, amely egymás
             <TextBlock x:Name="selectedDateText" Margin="0,10,0,0"/>
         </StackPanel>
     </Grid>
-
+```
 1.A Calendar egy naptár, ahol egyetlen dátumot lehet kiválasztani (SelectionMode="SingleDate").
 ```xaml
 <TextBlock Text="Naptár:" Margin="0,0,0,5"/>
