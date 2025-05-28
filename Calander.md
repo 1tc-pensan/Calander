@@ -166,7 +166,8 @@ A név és jelszó mezők nem üresek
 
 A felhasználó elmúlt 18 éves (YearOver18())
 
-Ha minden igaz → sikeres regisztrációs üzenet Egyébként → "Érvénytelen adatok" üzenet
+Ha minden igaz → sikeres regisztrációs üzenet 
+Egyébként → "Érvénytelen adatok" üzenet
 
 ### 2. YearOver18 – Életkor ellenőrzése
 Szerepe:
