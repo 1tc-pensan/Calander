@@ -114,7 +114,6 @@ Egy szövegbeviteli mező, ahol a felhasználó megadhatja a felhasználónevét
 Width="200": A mező szélessége 200 egység.
 PasswordBox (x:Name="PasswordBox"):
 Egy jelszóbeviteli mező, amely elrejti a begépelt karaktereket (pl. csillagokkal vagy pontokkal).
-Width="200": A mező szélessége szintén 200 egység.
 DatePicker (x:Name="BirthDayDatePicker"):
 Egy dátumválasztó vezérlő, amely lehetővé teszi a felhasználó számára, hogy kiválasszon egy születési dátumot.
 CheckBox (x:Name="AszfCheckBox"):
