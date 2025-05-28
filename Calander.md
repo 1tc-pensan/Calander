@@ -141,8 +141,6 @@ Click="Register_Click": Egy eseménykezelő, amely a gombra kattintáskor fut le
         </StackPanel>
     </Grid>
 ```
-Ez a C# kód egy WPF alkalmazás eseménykezelő metódusa, amely a Regisztráció gomb kattintására fut le. Lépésről lépésre magyarázom, mit csinál:
-
 Metódus aláírása:
 private void Register_Click(object sender, RoutedEventArgs e): Ez a Register gomb Click eseményéhez tartozó metódus, amelyet a XAML-ben definiáltak (Click="Register_Click").
 Ellenőrzés, hogy a küldő egy gomb:
@@ -174,8 +172,6 @@ private void Register_Click(object sender, RoutedEventArgs e)
     }
 }
 ```
-Ez a C# kód egy YearOver18 nevű metódust definiál, amely ellenőrzi, hogy a felhasználó 18 évnél idősebb-e a BirthDayDatePicker dátumválasztó alapján. Íme a tömör magyarázat:
-
 Visszatérési érték: A metódus bool típusú, tehát true vagy false értéket ad vissza.
 Logika:
 BirthDayDatePicker.SelectedDate.Value.Date: Lekéri a kiválasztott születési dátumot.
@@ -196,4 +192,26 @@ private bool YearOver18()
     }
     return result;
 }
+```
+Funkció:
+A metódus egy üzenetablakot (MessageBox) jelenít meg, amely az alkalmazás ÁSZF-jét tartalmazza.
+Tartalom:
+Az üzenetablak szövege az ÁSZF részleteit írja le, például:
+Az alkalmazás használata az ÁSZF elfogadását jelenti.
+Az alkalmazás célja funkcionális és megbízható szolgáltatás nyújtása.
+A tartalom szerzői jogvédelem alatt áll.
+A fejlesztő nem felel adatvesztésért vagy hibás működésért.
+Jogszerű használatra kötelezi a felhasználót.
+Az alkalmazás lehet ingyenes vagy fizetős (verziófüggő).
+A fejlesztő előzetes értesítés nélkül frissítheti az alkalmazást.
+Személyes adatok kezelése adatvédelmi tájékoztató szerint történik.
+Magyar jog az irányadó jogviták esetén.
+Az ÁSZF módosítható, új verziók automatikusan érvénybe lépnek.
+Üzenetablak:
+MessageBox.Show(...): Megjeleníti az ÁSZF szövegét egy felugró ablakban, amelynek címe "Általános Szerződési Feltételek".
+```cs
+        private void AszfButton_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("A jelen alkalmazás használata a felhasználó által az ÁSZF elfogadását jelenti.\r\n\r\nAz alkalmazás célja, hogy funkcionális és megbízható szolgáltatást nyújtson felhasználói számára.\r\n\r\nAz alkalmazás minden tartalma és funkciója szerzői jogvédelem alatt áll.\r\n\r\nA fejlesztő nem vállal felelősséget az esetleges adatvesztésért vagy hibás működésből eredő károkért.\r\n\r\nA felhasználó köteles az alkalmazást jogszerűen és rendeltetésszerűen használni.\r\n\r\nAz alkalmazás használata ingyenes/fizetős – kérjük, ellenőrizze az adott verzió feltételeit.\r\n\r\nA fejlesztő fenntartja a jogot az alkalmazás frissítésére vagy módosítására előzetes értesítés nélkül.\r\n\r\nA személyes adatok kezelése az adatvédelmi tájékoztató szerint történik.\r\n\r\nBármely jogvita esetén a magyar jog az irányadó.\r\n\r\nA jelen ÁSZF módosítható, a frissített verziók a letöltéssel vagy frissítéssel automatikusan érvénybe lépnek.", "Általános Szerződési Feltételek");
+        }
 ```
