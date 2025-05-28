@@ -197,11 +197,11 @@ Ha a születési dátum korábbi (azaz az illető elmúlt 18 éves) → true
 Ha későbbi vagy ugyanaz → false
 
 A Debug.WriteLine csak fejlesztési célra szolgál, nem befolyásolja a működést.
-```
+
 3. AszfButton_Click – Általános Szerződési Feltételek megjelenítése
 Szerepe:
 Ez a függvény akkor fut le, amikor a felhasználó az ÁSZF gombra kattint. Megjelenít egy üzenetablakot, amely tartalmazza az Általános Szerződési Feltételeket.
-
+```
 private void AszfButton_Click(object sender, RoutedEventArgs e)
 {
     MessageBox.Show(
