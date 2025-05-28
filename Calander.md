@@ -5,19 +5,32 @@ Ez a dokumentum egy egyszerű WPF alkalmazás kódját mutatja be, amely egy `Ca
 ## XAML kód (MainWindow.xaml)
 
 ```xaml
-<Window x:Class="WpfApp3.MainWindow"
+<Window x:Class="calandar.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Calendar és DatePicker" Height="450" Width="800">
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:calandar"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <StackPanel Margin="10">
-            <TextBlock Text="Naptár:" Margin="0,0,0,5"/>
-            <Calendar x:Name="myCalendar" SelectionMode="SingleDate"/>
-            <TextBlock Text="Dátumválasztó:" Margin="0,20,0,5"/>
-            <DatePicker x:Name="myDatePicker"/>
-            <Button Content="Kiválasztott dátum mutatása" Click="Button_Click" Margin="0,20,0,0"/>
-            <TextBlock x:Name="selectedDateText" Margin="0,10,0,0"/>
-        </StackPanel>
+        <Grid>
+            <StackPanel Orientation="Horizontal" Margin="10,10,0,0">
+                <StackPanel Orientation="Vertical">
+                    <TextBlock Text="Felhasználó név:" FontSize="20"/>
+                    <TextBlock Text="Jelszó:" FontSize="20"/>
+                    <TextBlock Text="Születési dátum: " FontSize="20"/>
+                    <Button x:Name="AszfButton" Content="Általános Szerőzdési feltételek" Margin="0,10,10,0" Click="AszfButton_Click" ></Button>
+                </StackPanel>
+                <StackPanel Orientation="Vertical">
+                    <TextBox x:Name="UserNameTextBox" Width="200"/>
+                    <PasswordBox x:Name="PasswordBox" Width="200"/>
+                    <DatePicker x:Name="BirthDayDatePicker"></DatePicker>
+                    <CheckBox x:Name="AszfCheckBox" Content="Ászf" FontSize="20" IsChecked="False"/>
+                </StackPanel>
+            </StackPanel>
+            <Button x:Name="Register" Content="Regisztárico" Width="100" Height="40" Margin="138,137,162,57" Click="Register_Click"/>
+        </Grid>
     </Grid>
 </Window>
 ```
