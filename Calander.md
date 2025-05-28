@@ -1,6 +1,6 @@
 # Calendar és DatePicker WPF-ben
 
-Ez a dokumentum egy egyszerű WPF alkalmazás kódját mutatja be, amely egy `Calendar` és egy `DatePicker` vezérlőt használ a dátum kiválasztására.
+Ez a dokumentáció a megadott C# WPF alkalmazás, a "Calendar" működését és kódját magyarázza el röviden és érthetően.
 
 ## XAML kód (MainWindow.xaml)
 
