@@ -2,6 +2,8 @@
 
 Ez a dokumentáció a megadott C# WPF alkalmazás, a "Calendar" működését és kódját magyarázza el röviden és érthetően.
 
+Áttekintés
+A "Calendar" egy egyszerű WPF alkalmazás, amely egy regisztrációs űrlapot biztosít a felhasználók számára. Az űrlap segítségével a felhasználók megadhatják nevüket, jelszavukat, születési dátumukat, és elfogadhatják az Általános Szerződési Feltételeket (ÁSZF). A regisztráció csak akkor sikeres, ha minden adat érvényes és a felhasználó elmúlt 18 éves.
 ## XAML kód (MainWindow.xaml)
 
 ```xaml
