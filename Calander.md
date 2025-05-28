@@ -36,24 +36,49 @@ Ez a dokumentum egy egyszerű WPF alkalmazás kódját mutatja be, amely egy `Ca
 ```
 ### Cs kód (MainWindow.xaml.cs)
 ```cs
-namespace WpfApp3;
-
-/// <summary>
-/// Interaction logic for MainWindow.xaml
-/// </summary>
-public partial class MainWindow : Window
+namespace calandar
 {
-    public MainWindow()
+    /// <summary>
+    /// Interaction logic for MainWindow.xaml
+    /// </summary>
+    public partial class MainWindow : Window
     {
-        InitializeComponent();
-    }
+        public MainWindow()
+        {
+            InitializeComponent();
+        }
 
-    private void Button_Click(object sender, RoutedEventArgs e)
-    {
-        DateTime? selectedCalendarDate = myCalendar.SelectedDate;
-        DateTime? selectedPickerDate = myDatePicker.SelectedDate;
-        selectedDateText.Text = $"Mai dátum: {selectedCalendarDate?.ToString("yyyy.MM.dd") ?? "nincs kiválasztva"}\n" +
-                              $"Kiválasztott dátum: {selectedPickerDate?.ToString("yyyy.MM.dd") ?? "nincs kiválasztva"}";
+        private void Register_Click(object sender, RoutedEventArgs e)
+        {
+            if (sender is Button button)
+            {
+                if (AszfCheckBox.IsChecked == true && UserNameTextBox.Text != null && PasswordBox.Password != null && YearOver18())
+                {
+                    MessageBox.Show("Sikeresen regisztráltál");
+                }
+                else
+                {
+                    MessageBox.Show("Érvénytelen adatok");
+                }
+
+            }
+        }
+        private bool YearOver18()
+        {
+            bool result = false;
+            bool b = BirthDayDatePicker.SelectedDate.Value.Date > DateTime.Now.AddYears(-18);
+            System.Diagnostics.Debug.WriteLine($"18-nál idősebb{b}");
+            if (BirthDayDatePicker.SelectedDate.Value.Date < DateTime.Now.AddYears(-18))
+            {
+                result = true;
+            }
+            return result;
+        }
+
+        private void AszfButton_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("A jelen alkalmazás használata a felhasználó által az ÁSZF elfogadását jelenti.\r\n\r\nAz alkalmazás célja, hogy funkcionális és megbízható szolgáltatást nyújtson felhasználói számára.\r\n\r\nAz alkalmazás minden tartalma és funkciója szerzői jogvédelem alatt áll.\r\n\r\nA fejlesztő nem vállal felelősséget az esetleges adatvesztésért vagy hibás működésből eredő károkért.\r\n\r\nA felhasználó köteles az alkalmazást jogszerűen és rendeltetésszerűen használni.\r\n\r\nAz alkalmazás használata ingyenes/fizetős – kérjük, ellenőrizze az adott verzió feltételeit.\r\n\r\nA fejlesztő fenntartja a jogot az alkalmazás frissítésére vagy módosítására előzetes értesítés nélkül.\r\n\r\nA személyes adatok kezelése az adatvédelmi tájékoztató szerint történik.\r\n\r\nBármely jogvita esetén a magyar jog az irányadó.\r\n\r\nA jelen ÁSZF módosítható, a frissített verziók a letöltéssel vagy frissítéssel automatikusan érvénybe lépnek.", "Általános Szerződési Feltételek");
+        }
     }
 }
 ```
