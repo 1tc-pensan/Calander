@@ -83,8 +83,6 @@ namespace calandar
     }
 }
 ```
-Ez a kód egy XAML (Extensible Application Markup Language) részlet, amelyet valószínűleg egy WPF (Windows Presentation Foundation) vagy UWP (Universal Windows Platform) alkalmazásban használnak. A kód egy grafikus felhasználói felület (UI) leírását tartalmazza, amely egy regisztrációs űrlapot definiál. Nézzük meg lépésről lépésre, mit csinál a kód:
-
 1. Felépítés
 A kód egy Grid vezérlőelemet használ, amely egy rács alapú elrendezést biztosít az UI elemek pozicionálására. Ezen belül egy másik Grid található, amely további elrendezést biztosít, és a tartalom egy StackPanel segítségével van megszervezve.
 
