@@ -141,21 +141,3 @@ A felhasználói felület `Grid` vezérlőt használ a rácsos elrendezéshez. E
 
 ---
 
-## Alternatív Calendar + DatePicker UI példa
-
-```xaml
-<Grid>
-    <StackPanel Margin="10">
-        <TextBlock Text="Naptár:" Margin="0,0,0,5"/>
-        <Calendar x:Name="myCalendar" SelectionMode="SingleDate"/>
-        <TextBlock Text="Dátumválasztó:" Margin="0,20,0,5"/>
-        <DatePicker x:Name="myDatePicker"/>
-        <Button Content="Kiválasztott dátum mutatása" Click="Button_Click" Margin="0,20,0,0"/>
-        <TextBlock x:Name="selectedDateText" Margin="0,10,0,0"/>
-    </StackPanel>
-</Grid>
-```
-
----
-
-Ha szeretnéd, el tudom készíteni `.md` fájlként is, amit letölthetsz – ehhez csak kérd meg, és elkészítem a fájlt, amit aztán **letölthetsz innen**.
