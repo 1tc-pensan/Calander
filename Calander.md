@@ -109,31 +109,31 @@ A felhasználói felület `Grid` vezérlőt használ a rácsos elrendezéshez. E
 
 ## Vezérlők leírása
 
-### 1. `TextBox` – `UserNameTextBox`
+### 1.`UserNameTextBox`
 
 - Felhasználónév megadására.
 - `Width="200"`
 
-### 2. `PasswordBox` – `PasswordBox`
+### 2.`PasswordBox`
 
 - Jelszó bevitelére szolgál.
 - A karaktereket elrejti.
 
-### 3. `DatePicker` – `BirthDayDatePicker`
+### 3.`BirthDayDatePicker`
 
 - A felhasználó születési dátumának kiválasztásához.
 
-### 4. `CheckBox` – `AszfCheckBox`
+### 4.`AszfCheckBox`
 
 - Jelölőnégyzet az ÁSZF elfogadásához.
 - `FontSize="20"`, `IsChecked="False"`
 
-### 5. `Button` – `AszfButton`
+### 5.`AszfButton`
 
 - Általános Szerződési Feltételek megtekintése.
 - `Click="AszfButton_Click"`
 
-### 6. `Button` – `Register`
+### 6.`Register`
 
 - Regisztrációs művelet indítása.
 - `Click="Register_Click"`
