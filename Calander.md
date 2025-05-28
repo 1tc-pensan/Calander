@@ -109,19 +109,24 @@ Click="AszfButton_Click": Egy eseménykezelő, amely akkor fut le, ha a gombra k
 4. Második StackPanel (beviteli mezők)
 Ez a panel tartalmazza az űrlap beviteli elemeit:
 
-TextBox (x:Name="UserNameTextBox"):
-Egy szövegbeviteli mező, ahol a felhasználó megadhatja a felhasználónevét.
-Width="200": A mező szélessége 200 egység.
-PasswordBox (x:Name="PasswordBox"):
-Egy jelszóbeviteli mező, amely elrejti a begépelt karaktereket (pl. csillagokkal vagy pontokkal).
-DatePicker (x:Name="BirthDayDatePicker"):
-Egy dátumválasztó vezérlő, amely lehetővé teszi a felhasználó számára, hogy kiválasszon egy születési dátumot.
-CheckBox (x:Name="AszfCheckBox"):
-Egy jelölőnégyzet, amelynek felirata "Ászf".
-FontSize="20": A betűméret 20 egység.
-IsChecked="False": Alapértelmezés szerint a jelölőnégyzet nincs bejelölve.
-5. Regisztrációs gomb
-A külső Grid egy külön Button elemet is tartalmaz:
+1. **UserNameTextBox** (`TextBox`):  
+   Egy szövegbeviteli mező, ahol a felhasználó megadhatja a felhasználónevét.  
+   - `Width="200"`: A mező szélessége 200 egység.
+
+2. **PasswordBox** (`PasswordBox`):  
+   Egy jelszóbeviteli mező, amely elrejti a begépelt karaktereket (pl. csillagokkal vagy pontokkal).
+
+3. **BirthDayDatePicker** (`DatePicker`):  
+   Egy dátumválasztó vezérlő, amely lehetővé teszi a felhasználó számára, hogy kiválasszon egy születési dátumot.
+
+4. **AszfCheckBox** (`CheckBox`):  
+   Egy jelölőnégyzet, amelynek felirata "Ászf".  
+   - `FontSize="20"`: A betűméret 20 egység.  
+   - `IsChecked="False"`: Alapértelmezés szerint a jelölőnégyzet nincs bejelölve.
+
+5. **Regisztrációs gomb** (`Button`):  
+   A külső Grid tartalmaz egy külön `Button` elemet, amely a regisztráció indítására szolgál.
+
 
 x:Name="Register": A gomb neve.
 Content="Regisztárico": A gomb felirata (valószínűleg elírás, helyesen "Regisztráció" lenne).
