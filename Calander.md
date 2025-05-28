@@ -168,7 +168,7 @@ A felhasználó elmúlt 18 éves (YearOver18())
 
 Ha minden igaz → sikeres regisztrációs üzenet Egyébként → "Érvénytelen adatok" üzenet
 
-##2. YearOver18 – Életkor ellenőrzése
+### 2. YearOver18 – Életkor ellenőrzése
 Szerepe:
 Ez a segédfüggvény ellenőrzi, hogy a felhasználó születési dátuma alapján legalább 18 éves-e.
 
