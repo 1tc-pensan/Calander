@@ -157,7 +157,7 @@ Ha minden feltétel teljesül, egy üzenetablak (MessageBox) jelenik meg: "Siker
 Ha bármelyik feltétel nem teljesül, egy üzenetablak jelzi: "Érvénytelen adatok".
 <TextBlock Text="Naptár:" Margin="0,0,0,5"/>
 <Calendar x:Name="myCalendar" SelectionMode="SingleDate"/>
-```xaml
+```cs
 private void Register_Click(object sender, RoutedEventArgs e)
 {
     if (sender is Button button)
@@ -174,17 +174,26 @@ private void Register_Click(object sender, RoutedEventArgs e)
     }
 }
 ```
-4. A Button_Click esemény hatására a program kiírja a Calendar és a DatePicker által kiválasztott dátumokat a TextBlock-ba. Ha nincs kiválasztva dátum, a "nincs kiválasztva" szöveg jelenik meg.
+Ez a C# kód egy YearOver18 nevű metódust definiál, amely ellenőrzi, hogy a felhasználó 18 évnél idősebb-e a BirthDayDatePicker dátumválasztó alapján. Íme a tömör magyarázat:
+
+Visszatérési érték: A metódus bool típusú, tehát true vagy false értéket ad vissza.
+Logika:
+BirthDayDatePicker.SelectedDate.Value.Date: Lekéri a kiválasztott születési dátumot.
+DateTime.Now.AddYears(-18): Az aktuális dátumot 18 évvel csökkenti, így megkapja azt a dátumot, amely előtt a felhasználó 18 évnél idősebb.
+if (BirthDayDatePicker.SelectedDate.Value.Date < DateTime.Now.AddYears(-18)): Ha a születési dátum korábbi, mint az aktuális dátum mínusz 18 év, akkor a felhasználó 18 évnél idősebb, így result = true.
+Hibás/ felesleges sor:
+bool b = BirthDayDatePicker.SelectedDate.Value.Date > DateTime.Now.AddYears(-18): Ez a sor ellenőrzi, hogy a születési dátum későbbi-e, mint 18 évvel ezelőtt, de az eredményt (b) nem használja, csak kiírja a debug konzolra (System.Diagnostics.Debug.WriteLine). Ez redundáns, mert a tényleges logika az if feltétele.
+Visszatérés: A result értéket adja vissza, amely true, ha a felhasználó 18 évnél idősebb, különben false.
 ```cs
- private void Button_Click(object sender, RoutedEventArgs e)
+private bool YearOver18()
+{
+    bool result = false;
+    bool b = BirthDayDatePicker.SelectedDate.Value.Date > DateTime.Now.AddYears(-18);
+    System.Diagnostics.Debug.WriteLine($"18-nál idősebb{b}");
+    if (BirthDayDatePicker.SelectedDate.Value.Date < DateTime.Now.AddYears(-18))
     {
-        DateTime? selectedCalendarDate = myCalendar.SelectedDate;
-        DateTime? selectedPickerDate = myDatePicker.SelectedDate;
-        selectedDateText.Text = $"Mai dátum: {selectedCalendarDate?.ToString("yyyy.MM.dd") ?? "nincs kiválasztva"}\n" +
-                              $"Kiválasztott dátum: {selectedPickerDate?.ToString("yyyy.MM.dd") ?? "nincs kiválasztva"}";
+        result = true;
     }
-```
-5. A DateTime? típust használjuk, mert a kiválasztott dátum lehet null, ha a felhasználó még nem jelölt ki semmit.
-```cs
-DateTime? selectedCalendarDate = myCalendar.SelectedDate;
+    return result;
+}
 ```
