@@ -198,15 +198,10 @@ Ha későbbi vagy ugyanaz → false
 
 A Debug.WriteLine csak fejlesztési célra szolgál, nem befolyásolja a működést.
 ```
-```
 3. AszfButton_Click – Általános Szerződési Feltételek megjelenítése
 Szerepe:
 Ez a függvény akkor fut le, amikor a felhasználó az ÁSZF gombra kattint. Megjelenít egy üzenetablakot, amely tartalmazza az Általános Szerződési Feltételeket.
 
-Kód:
-csharp
-Másolás
-Szerkesztés
 private void AszfButton_Click(object sender, RoutedEventArgs e)
 {
     MessageBox.Show(
@@ -221,4 +216,3 @@ Egy üzenetablakot (MessageBox) jelenít meg.
 A szöveg tartalmazza a felhasználási feltételeket, pl. jogi nyilatkozat, adatkezelés, felelősség kizárása stb.
 
 A felhasználó így el tudja olvasni, mit fogad el, amikor bepipálja az ÁSZF-et.
-```
