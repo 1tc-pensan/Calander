@@ -83,7 +83,54 @@ namespace calandar
     }
 }
 ```
-1. A Grid egy egyszerű elrendezést biztosít, benne egy StackPanel, amely egymás alá rendezi az elemeket.
+Ez a kód egy XAML (Extensible Application Markup Language) részlet, amelyet valószínűleg egy WPF (Windows Presentation Foundation) vagy UWP (Universal Windows Platform) alkalmazásban használnak. A kód egy grafikus felhasználói felület (UI) leírását tartalmazza, amely egy regisztrációs űrlapot definiál. Nézzük meg lépésről lépésre, mit csinál a kód:
+
+1. Felépítés
+A kód egy Grid vezérlőelemet használ, amely egy rács alapú elrendezést biztosít az UI elemek pozicionálására. Ezen belül egy másik Grid található, amely további elrendezést biztosít, és a tartalom egy StackPanel segítségével van megszervezve.
+
+2. StackPanel-ek
+Külső StackPanel:
+Orientation="Horizontal": Ez azt jelenti, hogy az elemek vízszintesen (balról jobbra) vannak elrendezve.
+Margin="10,10,0,0": A panel 10 egységnyi margóval rendelkezik felül és bal oldalon.
+Belső StackPanel-ek:
+Két StackPanel van, mindkettő Orientation="Vertical", tehát az elemek függőlegesen vannak elrendezve egymás alatt.
+Az első StackPanel szöveges címkéket tartalmaz, a második pedig az űrlap beviteli mezőit.
+3. Első StackPanel (címkék)
+Ez a panel tartalmazza a következő TextBlock elemeket, amelyek szöveges címkék az űrlap mezőihez:
+
+"Felhasználó név:" – A felhasználónév mező címkéje.
+"Jelszó:" – A jelszó mező címkéje.
+"Születési dátum:" – A születési dátum mező címkéje.
+Mindegyik FontSize="20" tulajdonsággal rendelkezik, tehát a betűméret 20 egység.
+Ezenkívül van egy Button (gomb):
+
+x:Name="AszfButton": A gomb neve, amely lehetővé teszi, hogy a kódban hivatkozzunk rá.
+Content="Általános Szerződési feltételek": A gomb felirata.
+Margin="0,10,10,0": Margó a gomb körül.
+Click="AszfButton_Click": Egy eseménykezelő, amely akkor fut le, ha a gombra kattintanak. Ez feltételez egy AszfButton_Click nevű metódust a háttérkódban (pl. C#), amely kezeli a gomb kattintását (pl. megnyithat egy ÁSZF dokumentumot).
+4. Második StackPanel (beviteli mezők)
+Ez a panel tartalmazza az űrlap beviteli elemeit:
+
+TextBox (x:Name="UserNameTextBox"):
+Egy szövegbeviteli mező, ahol a felhasználó megadhatja a felhasználónevét.
+Width="200": A mező szélessége 200 egység.
+PasswordBox (x:Name="PasswordBox"):
+Egy jelszóbeviteli mező, amely elrejti a begépelt karaktereket (pl. csillagokkal vagy pontokkal).
+Width="200": A mező szélessége szintén 200 egység.
+DatePicker (x:Name="BirthDayDatePicker"):
+Egy dátumválasztó vezérlő, amely lehetővé teszi a felhasználó számára, hogy kiválasszon egy születési dátumot.
+CheckBox (x:Name="AszfCheckBox"):
+Egy jelölőnégyzet, amelynek felirata "Ászf".
+FontSize="20": A betűméret 20 egység.
+IsChecked="False": Alapértelmezés szerint a jelölőnégyzet nincs bejelölve.
+5. Regisztrációs gomb
+A külső Grid egy külön Button elemet is tartalmaz:
+
+x:Name="Register": A gomb neve.
+Content="Regisztárico": A gomb felirata (valószínűleg elírás, helyesen "Regisztráció" lenne).
+Width="100", Height="40": A gomb mérete.
+Margin="138,137,162,57": A gomb pozíciója a rácson belül (bal, felső, jobb, alsó margó).
+Click="Register_Click": Egy eseménykezelő, amely a gombra kattintáskor fut le, és valószínűleg a regisztrációs folyamatot kezeli (pl. az űrlap adatainak ellenőrzését és mentését).
 ```xaml
     <Grid>
         <StackPanel Margin="10">
@@ -96,15 +143,39 @@ namespace calandar
         </StackPanel>
     </Grid>
 ```
-2. A Calendar egy naptár, ahol egyetlen dátumot lehet kiválasztani (SelectionMode="SingleDate").
-```xaml
+Ez a C# kód egy WPF alkalmazás eseménykezelő metódusa, amely a Regisztráció gomb kattintására fut le. Lépésről lépésre magyarázom, mit csinál:
+
+Metódus aláírása:
+private void Register_Click(object sender, RoutedEventArgs e): Ez a Register gomb Click eseményéhez tartozó metódus, amelyet a XAML-ben definiáltak (Click="Register_Click").
+Ellenőrzés, hogy a küldő egy gomb:
+if (sender is Button button): Megbizonyosodik róla, hogy az eseményt kiváltó objektum egy gomb. Ez biztonsági ellenőrzés, bár itt valószínűleg felesleges, mivel a gomb hívja meg.
+Feltételek ellenőrzése:
+AszfCheckBox.IsChecked == true: Ellenőrzi, hogy az ÁSZF jelölőnégyzet be van-e jelölve.
+UserNameTextBox.Text != null: Ellenőrzi, hogy a felhasználónév mező nem üres.
+PasswordBox.Password != null: Ellenőrzi, hogy a jelszó mező nem üres.
+YearOver18(): Egy feltételezett metódus, amely valószínűleg azt ellenőrzi, hogy a felhasználó 18 évnél idősebb-e a BirthDayDatePicker alapján.
+Eredmény:
+Ha minden feltétel teljesül, egy üzenetablak (MessageBox) jelenik meg: "Sikeresen regisztráltál".
+Ha bármelyik feltétel nem teljesül, egy üzenetablak jelzi: "Érvénytelen adatok".
 <TextBlock Text="Naptár:" Margin="0,0,0,5"/>
 <Calendar x:Name="myCalendar" SelectionMode="SingleDate"/>
 ```
-3. A DatePicker egy dátumválasztó, amely legördülő naptárral és kézi bevitellel is működik.
 ```xaml
-<TextBlock Text="Dátumválasztó:" Margin="0,20,0,5"/>
-            <DatePicker x:Name="myDatePicker"/>
+private void Register_Click(object sender, RoutedEventArgs e)
+{
+    if (sender is Button button)
+    {
+        if (AszfCheckBox.IsChecked == true && UserNameTextBox.Text != null && PasswordBox.Password != null && YearOver18())
+        {
+            MessageBox.Show("Sikeresen regisztráltál");
+        }
+        else
+        {
+            MessageBox.Show("Érvénytelen adatok");
+        }
+
+    }
+}
 ```
 4. A Button_Click esemény hatására a program kiírja a Calendar és a DatePicker által kiválasztott dátumokat a TextBlock-ba. Ha nincs kiválasztva dátum, a "nincs kiválasztva" szöveg jelenik meg.
 ```cs
