@@ -159,7 +159,6 @@ Ha minden feltétel teljesül, egy üzenetablak (MessageBox) jelenik meg: "Siker
 Ha bármelyik feltétel nem teljesül, egy üzenetablak jelzi: "Érvénytelen adatok".
 <TextBlock Text="Naptár:" Margin="0,0,0,5"/>
 <Calendar x:Name="myCalendar" SelectionMode="SingleDate"/>
-```
 ```xaml
 private void Register_Click(object sender, RoutedEventArgs e)
 {
